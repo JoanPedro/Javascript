@@ -1,2 +1,3 @@
 # Javascript
-Fundamentals
+
+- Fundamentos do Javascript/ES6+
