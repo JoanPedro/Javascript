@@ -1,4 +1,5 @@
 // Lançamento ES6
+// Template String -> ` `
 
 const nome = 'Joan'
 const concatenar = 'Olá ' + nome + ', Bom dia' // Não é possível quebrar linha.
