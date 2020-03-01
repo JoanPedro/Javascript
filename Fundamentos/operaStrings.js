@@ -9,6 +9,7 @@ console.log(escola.substring(1)) // Do índice 1 até o final.
 console.log(escola.substring(0, 3)) //Do índice 0 + 3 caracteres.
 
 console.log(escola.concat(' Cimatec').concat('!'))
+console.log(escola + ' Cimatec' + '!')
 
 const forReplace = 'S3NAI'
 console.log(escola.replace(/\d/, 'E')) // /\d/ = Substitua todos dígitos por 'E'
