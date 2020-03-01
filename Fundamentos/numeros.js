@@ -21,3 +21,5 @@ const mediaAlturas2 = somaAlturas2 / 2
 
 console.log(somaAlturas2, mediaAlturas2)
 console.log(somaAlturas2.toFixed(2), mediaAlturas2.toFixed(2))
+console.log(somaAlturas.toString(), typeof(somaAlturas.toString()))
+console.log(somaAlturas.toString(2)) // Binário
