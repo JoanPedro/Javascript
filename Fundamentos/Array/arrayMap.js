@@ -30,4 +30,7 @@ const paraObjeto = json => JSON.parse(json)
 const apenasPreco = produto => produto.preco
 
 const resultadoPreco = carrinhoDeCompras.map(paraObjeto).map(apenasPreco)
+const paraObjetos = carrinhoDeCompras.map(paraObjeto) // Cada Json em cada posição viram objeto.
+
 console.log(resultadoPreco)
+console.log(paraObjetos)
