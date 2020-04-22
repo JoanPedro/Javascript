@@ -1,6 +1,7 @@
 const nums = [1, 2, 3, 4, 5]
 
 // Map -> Um FOR com proposito, para fazer um mapeamento, uma transformação.
+// ... Transforma um array em outro. Elemento por elemento.
 
 let resultado = nums.map(e => {
   return e*2 // Função de transformação para o dobro. Percorre 1 a 1
