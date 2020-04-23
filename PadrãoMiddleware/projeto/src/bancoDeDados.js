@@ -20,4 +20,10 @@ const getProdutos = _ => {
   return Object.values(produtos)
 }
 
+const deleteProdutos = id => {
+  const produto = produtos[id]
+  delete produtos[id]
+  return produto
+}
+
 module.exports = { saveProdutos, getProdutoById, getProdutos }
