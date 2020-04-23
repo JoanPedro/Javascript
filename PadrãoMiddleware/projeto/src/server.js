@@ -47,6 +47,7 @@ app.delete('/produtos/:id', (req, res) => {
   const produto = bancoDeDados.deleteProdutos(req.params.id)
   res.send(produto)
 })
+
 app.listen(porta, _ => {
   console.log(`Servidor está executando na porta: ${porta}.`)
 })
