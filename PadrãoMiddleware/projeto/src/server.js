@@ -1,5 +1,10 @@
 const porta = 3003 // Declaração da Porta do Processo (Rede)
-const app = require('express')()
+const express = require('express')
+const app = express()
+const bancoDeDados = require('./bancoDeDados')
+
+app.use(express.json()) // Permite POST com Body em JSON Format "PARSING" => application/json
+app.use(express.urlencoded({ extended: true })) // Permite POST com Body em Form application/x-www-form-urlencoded
 
 /*
 app.get('/produtos', (req, res, next) => {
@@ -7,8 +12,20 @@ app.get('/produtos', (req, res, next) => {
   next()  
 })*/
 
-app.get('/produtos', (req, res, next) => {
-  res.send({nome: 'Notebook', preco: 1299.99}) // Converte para JSON (método send faz automaticamente)
+app.get('/produtos', (req, res) => {
+  res.send(bancoDeDados.getProdutos())  
+})
+
+app.get('/produtos/:id', (req, res) => {
+  res.send(bancoDeDados.getProdutoById(req.params.id)) // Adquire o Id dos Parametros da Requisição 
+})
+
+app.post('/produtos', (req, res) => {
+  const produto = bancoDeDados.saveProdutos({
+    nome: req.body.name,
+    preco: req.body.preco
+  })
+  res.send(produto)
 })
 
 app.listen(porta, _ => {
