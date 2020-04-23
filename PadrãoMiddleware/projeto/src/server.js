@@ -28,6 +28,15 @@ app.post('/produtos', (req, res) => {
   res.send(produto)
 })
 
+app.put('/produtos/:id', (req, res) => {
+  const produto = bancoDeDados.saveProdutos({
+    id: req.params.id,
+    nome: req.body.name,
+    preco: req.body.preco
+  })
+  res.send(produto)
+})
+
 app.listen(porta, _ => {
   console.log(`Servidor está executando na porta: ${porta}.`)
 })
