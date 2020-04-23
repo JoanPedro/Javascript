@@ -26,4 +26,4 @@ const deleteProdutos = id => {
   return produto
 }
 
-module.exports = { saveProdutos, getProdutoById, getProdutos }
+module.exports = { saveProdutos, getProdutoById, getProdutos, deleteProdutos }

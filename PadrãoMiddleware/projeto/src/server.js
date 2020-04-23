@@ -16,6 +16,7 @@ app.get('/produtos', (req, res, next) => {
 })*/
 
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/produtos', (req, res) => {
   res.send(bancoDeDados.getProdutos())  
@@ -42,6 +43,10 @@ app.put('/produtos/:id', (req, res) => {
   res.send(produto)
 })
 
+app.delete('/produtos/:id', (req, res) => {
+  const produto = bancoDeDados.deleteProdutos(req.params.id)
+  res.send(produto)
+})
 app.listen(porta, _ => {
   console.log(`Servidor está executando na porta: ${porta}.`)
 })
