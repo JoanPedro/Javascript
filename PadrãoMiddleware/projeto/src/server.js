@@ -2,7 +2,7 @@ const porta = 3003 // Declaração da Porta do Processo (Rede)
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const bancoDeDados = require('./bancoDeDados')
+const routes = require('../router/store')
 
 /* Usar ao invés do body-parser
 app.use(express.json()) // Permite POST com Body em JSON Format "PARSING" => application/json
@@ -15,38 +15,10 @@ app.get('/produtos', (req, res, next) => {
   next()  
 })*/
 
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
-
-app.get('/produtos', (req, res) => {
-  res.send(bancoDeDados.getProdutos())  
-})
-
-app.get('/produtos/:id', (req, res) => {
-  res.send(bancoDeDados.getProdutoById(req.params.id)) // Adquire o Id dos Parametros da Requisição 
-})
-
-app.post('/produtos', (req, res) => {
-  const produto = bancoDeDados.saveProdutos({
-    nome: req.body.name,
-    preco: req.body.preco
-  })
-  res.send(produto)
-})
-
-app.put('/produtos/:id', (req, res) => {
-  const produto = bancoDeDados.saveProdutos({
-    id: req.params.id,
-    nome: req.body.name,
-    preco: req.body.preco
-  })
-  res.send(produto)
-})
-
-app.delete('/produtos/:id', (req, res) => {
-  const produto = bancoDeDados.deleteProdutos(req.params.id)
-  res.send(produto)
-})
+app.use(routes)
 
 app.listen(porta, _ => {
   console.log(`Servidor está executando na porta: ${porta}.`)
